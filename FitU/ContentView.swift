@@ -13,16 +13,40 @@ extension Color {
     static let BackColor = Color("BackColor")
 }
 
-struct testView: View{
+struct welcomeView: View{
+    
+    @State var showView: Bool = true
     @Binding var nameArray: [String]
     @Binding var emailArray: [String]
     @Binding var passwordArray: [String]
 
     var body: some View{
-        Text("WORK ON ME")
-        Text(nameArray[0])
-        Text(emailArray[0])
-        Text(passwordArray[0])
+        ZStack(alignment: .bottom){
+            VStack{
+                Text("Welcome to FitU").font(.largeTitle)
+                Text(nameArray[0]).font(.largeTitle)
+                Spacer()
+            }
+            
+
+            if showView{
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.4)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Button("Next"){
+                        showView.toggle()
+                    }
+                    Spacer()
+                }
+            }
+
+        }
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
@@ -154,7 +178,11 @@ struct signUpView: View{
             
             Spacer()
             
-            NavigationLink(destination: testView(nameArray: self.$nameArray, emailArray: self.$emailArray, passwordArray: self.$passwordArray), isActive: self.$show) {
+            Button("Save My Info"){
+//                nameArray.append(nameTextField)
+                self.saveAllFields()
+            }
+            NavigationLink(destination: welcomeView(nameArray: self.$nameArray, emailArray: self.$emailArray, passwordArray: self.$passwordArray), isActive: self.$show) {
 
                 Text("Next")
                 .frame(width: 140, height: 25)
@@ -166,10 +194,7 @@ struct signUpView: View{
                 )
             }
             
-            Button("Save My Info"){
-//                nameArray.append(nameTextField)
-                self.saveAllFields()
-            }
+            
         }
     }
     
