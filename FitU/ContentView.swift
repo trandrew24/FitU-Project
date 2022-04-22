@@ -501,20 +501,6 @@ struct male1: View{
                 Text("Day 1")
                     .foregroundColor(Color.black)
             }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
-                    }
                 NavigationLink(destination: testRealm()){
                     ZStack{
                     Image("pic3")
@@ -538,125 +524,14 @@ struct male1: View{
                         }
                     }
                 Spacer()
-                }
-            }
-        }
-        
-        if showView == 2 {
-        ZStack{
-            Color("BackColor")
-                .contentShape(Rectangle())
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            VStack(spacing: 50){
-        Text("Lets Get Started!")
-        HStack{
-            Spacer()
-            Button(action:{
-                showView = 1
-            }) {
-                Text("Day 1")
-            }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-                    .foregroundColor(Color.black)
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
                     }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("pic3")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("Workouts")
-                            .foregroundColor(Color.black)
-                            .bold()
-                    }
-                }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("Howto")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("How to")
-                            .foregroundColor(Color.black)
-                            .bold()
-                        }
-                    }
-                Spacer()
-                }
-            }
-        }
-        
-        if showView == 3 {
-        ZStack{
-            Color("BackColor")
-                .contentShape(Rectangle())
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            VStack(spacing: 50){
-        Text("Lets Get Started!")
-        HStack{
-            Spacer()
-            Button(action:{
-                showView = 1
-            }) {
-                Text("Day 1")
-            }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                    .foregroundColor(Color.black)
-                        }
-            Spacer()
-                    }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("pic3")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("Workouts")
-                            .foregroundColor(Color.black)
-                            .bold()
-                    }
-                }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("Howto")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("How to")
-                            .foregroundColor(Color.black)
-                            .bold()
-                        }
-                    }
-                Spacer()
                 }
             }
         }
     }
 }
+
+
 struct male2: View{
     @State var showView: Int = 1
     
@@ -684,12 +559,6 @@ struct male2: View{
                 Text("Day 2")
             }
             Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
                     }
                 NavigationLink(destination: testRealm()){
                     ZStack{
@@ -741,69 +610,6 @@ struct male2: View{
                     .foregroundColor(Color.black)
             }
             Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
-                    }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("pic3")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("Workouts")
-                            .foregroundColor(Color.black)
-                            .bold()
-                    }
-                }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("Howto")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("How to")
-                            .foregroundColor(Color.black)
-                            .bold()
-                        }
-                    }
-                Spacer()
-                }
-            }
-        }
-        
-        if showView == 3 {
-        ZStack{
-            Color("BackColor")
-                .contentShape(Rectangle())
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            VStack(spacing: 50){
-        Text("Lets Get Started!")
-        HStack{
-            Spacer()
-            Button(action:{
-                showView = 1
-            }) {
-                Text("Day 1")
-            }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                    .foregroundColor(Color.black)
-                        }
-            Spacer()
                     }
                 NavigationLink(destination: testRealm()){
                     ZStack{
@@ -833,6 +639,7 @@ struct male2: View{
         }
     }
 }
+
 struct male3: View{
     @State var showView: Int = 1
     
@@ -1032,20 +839,6 @@ struct fmale1: View{
                 Text("Day 1")
                     .foregroundColor(Color.black)
             }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
-                    }
                 NavigationLink(destination: testRealm()){
                     ZStack{
                     Image("pic3")
@@ -1069,120 +862,7 @@ struct fmale1: View{
                         }
                     }
                 Spacer()
-                }
-            }
-        }
-        
-        if showView == 2 {
-        ZStack{
-            Color("BackColor")
-                .contentShape(Rectangle())
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            VStack(spacing: 50){
-        Text("Lets Get Started!")
-        HStack{
-            Spacer()
-            Button(action:{
-                showView = 1
-            }) {
-                Text("Day 1")
-            }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-                    .foregroundColor(Color.black)
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
                     }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("pic3")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("Workouts")
-                            .foregroundColor(Color.black)
-                            .bold()
-                    }
-                }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("Howto")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("How to")
-                            .foregroundColor(Color.black)
-                            .bold()
-                        }
-                    }
-                Spacer()
-                }
-            }
-        }
-        
-        if showView == 3 {
-        ZStack{
-            Color("BackColor")
-                .contentShape(Rectangle())
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            VStack(spacing: 50){
-        Text("Lets Get Started!")
-        HStack{
-            Spacer()
-            Button(action:{
-                showView = 1
-            }) {
-                Text("Day 1")
-            }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                    .foregroundColor(Color.black)
-                        }
-            Spacer()
-                    }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("pic3")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("Workouts")
-                            .foregroundColor(Color.black)
-                            .bold()
-                    }
-                }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("Howto")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("How to")
-                            .foregroundColor(Color.black)
-                            .bold()
-                        }
-                    }
-                Spacer()
                 }
             }
         }
@@ -1217,12 +897,6 @@ struct fmale2: View{
                 Text("Day 2")
             }
             Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
                     }
                 NavigationLink(destination: testRealm()){
                     ZStack{
@@ -1274,69 +948,6 @@ struct fmale2: View{
                     .foregroundColor(Color.black)
             }
             Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                        }
-            Spacer()
-                    }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("pic3")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("Workouts")
-                            .foregroundColor(Color.black)
-                            .bold()
-                    }
-                }
-                NavigationLink(destination: testRealm()){
-                    ZStack{
-                    Image("Howto")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .cornerRadius(100)
-                        Text("How to")
-                            .foregroundColor(Color.black)
-                            .bold()
-                        }
-                    }
-                Spacer()
-                }
-            }
-        }
-        
-        if showView == 3 {
-        ZStack{
-            Color("BackColor")
-                .contentShape(Rectangle())
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.5)
-            VStack(spacing: 50){
-        Text("Lets Get Started!")
-        HStack{
-            Spacer()
-            Button(action:{
-                showView = 1
-            }) {
-                Text("Day 1")
-            }
-            Spacer()
-            Button(action:{
-                showView = 2
-            }) {
-                Text("Day 2")
-            }
-            Spacer()
-            Button(action:{
-                showView = 3
-            }) {
-                Text("Day 3")
-                    .foregroundColor(Color.black)
-                        }
-            Spacer()
                     }
                 NavigationLink(destination: testRealm()){
                     ZStack{
@@ -1366,6 +977,7 @@ struct fmale2: View{
         }
     }
 }
+
 
 //_______________________________________
 
