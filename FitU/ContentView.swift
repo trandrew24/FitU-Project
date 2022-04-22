@@ -501,6 +501,8 @@ struct male1: View{
                 Text("Day 1")
                     .foregroundColor(Color.black)
             }
+            Spacer()
+                    }
                 NavigationLink(destination: testRealm()){
                     ZStack{
                     Image("pic3")
@@ -524,10 +526,10 @@ struct male1: View{
                         }
                     }
                 Spacer()
-                    }
                 }
             }
         }
+
     }
 }
 
@@ -839,6 +841,8 @@ struct fmale1: View{
                 Text("Day 1")
                     .foregroundColor(Color.black)
             }
+            Spacer()
+                    }
                 NavigationLink(destination: testRealm()){
                     ZStack{
                     Image("pic3")
@@ -862,13 +866,12 @@ struct fmale1: View{
                         }
                     }
                 Spacer()
-                    }
                 }
             }
         }
+
     }
 }
-
 //_____________________________________________
 struct fmale2: View{
     @State var showView: Int = 1
