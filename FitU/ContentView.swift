@@ -13,6 +13,19 @@ extension Color {
     static let BackColor = Color("BackColor")
 }
 
+struct testView: View{
+    @Binding var nameArray: [String]
+    @Binding var emailArray: [String]
+    @Binding var passwordArray: [String]
+
+    var body: some View{
+        Text("WORK ON ME")
+        Text(nameArray[0])
+        Text(emailArray[0])
+        Text(passwordArray[0])
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationView{
@@ -80,7 +93,7 @@ struct startView: View{
 struct signUpView: View{
     
     @State var show: Bool = false
-    @StateObject var nameTest = signUpTest()
+
 //    hold name, email, password
     @State var nameArray: [String] = []
     @State var emailArray: [String] = []
@@ -141,37 +154,22 @@ struct signUpView: View{
             
             Spacer()
             
-//            NavigationLink(destination: testView(nameArray: self.$nameArray)){
-//                Text("Next")
-//            }
-            
-            
-            
-            
-            
-            NavigationLink(destination: testView().onAppear {
-//                            self.saveAllFields()
+            NavigationLink(destination: testView(nameArray: self.$nameArray, emailArray: self.$emailArray, passwordArray: self.$passwordArray), isActive: self.$show) {
 
-                        }) {
-                            Text("Next")
-                            .frame(width: 140, height: 25)
-                            .foregroundColor(.black)
-                            .cornerRadius(100)
-                            .overlay(
-                            RoundedRectangle(cornerRadius: 100)
-                            .stroke(Color.black, lineWidth: 1)
-                            )
-    }
-            
-            Button("Next 1"){
-                nameTest.name[0] = nameTextField
+                Text("Next")
+                .frame(width: 140, height: 25)
+                .foregroundColor(.black)
+                .cornerRadius(100)
+                .overlay(
+                RoundedRectangle(cornerRadius: 100)
+                .stroke(Color.black, lineWidth: 1)
+                )
             }
             
-            
-            ForEach(nameArray, id: \.self) { data in
-                Text(data)
+            Button("Save My Info"){
+//                nameArray.append(nameTextField)
+                self.saveAllFields()
             }
-            .environmentObject(nameTest)
         }
     }
     
@@ -179,7 +177,6 @@ struct signUpView: View{
         nameArray.append(nameTextField)
         emailArray.append(emailTextField)
         passwordArray.append(passwordTextField)
-//        nameTest.name.append(nameTextField)
     }
 }
     
@@ -240,14 +237,8 @@ struct logInView: View{
         }
 }
 
-struct testView: View{
-    
-    @EnvironmentObject var nameTest: signUpTest
-    
-    var body: some View{
-        Text("\(nameTest.name[0])")
-    }
-}
+//come back to i
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -255,9 +246,3 @@ struct ContentView_Previews: PreviewProvider {
 .previewInterfaceOrientation(.portrait)
     }
 }
-
-class signUpTest: ObservableObject{
-    @Published var name: [String] = []
-    
-}
-//take all the text field in sign up and send it to test view
