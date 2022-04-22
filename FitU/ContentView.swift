@@ -503,7 +503,7 @@ struct male1: View{
             }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: maleWorkout1()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -1164,6 +1164,76 @@ struct fmale3: View{
 struct testRealm: View{
     var body: some View{
         Text("IT WOKR")
+    }
+}
+
+struct maleWorkout1: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 1 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("4 sets")
+        Text("4-6 reps")
+        Text("Squat")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("6-8 reps")
+        Text("Bench press")
+    }
+}
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("DB Row")
+        }
+}
+            ZStack{
+                Color("BackColor")
+                    .opacity(0.7)
+                    .contentShape(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 30)
+                .frame(width: 300, height: 120)
+                .foregroundColor(Color.white)
+                VStack{
+            Text("3 sets")
+            Text("10-15 reps")
+            Text("Latoral Raise")
+                    }
+                }
+            }
+        }
     }
 }
 
