@@ -15,7 +15,7 @@ extension Color {
 
 struct welcomeView: View{
     
-    @State var showView: Bool = true
+    @State var showView: Int = 1
     @Binding var nameArray: [String]
     @Binding var emailArray: [String]
     @Binding var passwordArray: [String]
@@ -28,19 +28,236 @@ struct welcomeView: View{
                 Spacer()
             }
             
-
-            if showView{
+//          QUESTIONNAIRE 1
+            if showView == 1 {
                 RoundedRectangle(cornerRadius: 30)
                 .frame(height: UIScreen.main.bounds.height * 0.67)
                 .transition(.move(edge: .bottom))
                 .foregroundColor(Color.BackColor)
-                .opacity(0.4)
+                .opacity(0.5)
                 .animation(.spring())
                 VStack{
                     Spacer()
-                    Button("Next"){
-                        showView.toggle()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("1/3")
+                        .padding()
+                    Text("What are you focused on?")
+                        .padding(.bottom, 90)
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Weight Maintenance")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
                     }
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Losing Weight")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Building Muscle")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Spacer()
+                }
+            }
+            
+//            QUESTIONNAIRE 2
+            else if showView == 2 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.5)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("2/3")
+                        .padding()
+                    Text("What is your gender?")
+                        .padding(.bottom, 90)
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Male")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Button(action: {
+                        showView += 2
+                    }) {
+                        Text("Female")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Spacer()
+                }
+            }
+            
+            
+            //QUESTIONARE for male 3
+            
+            else if showView == 3 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.7)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("3/3")
+                        .padding()
+                    Text("How many days do you want to work out?")
+                        .padding(.bottom, 90)
+                    
+                    NavigationLink(destination: male1()){
+                        Text("1 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: male2()){
+                        Text("2 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: male3()){
+                        Text("3 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    Spacer()
+                }
+            }
+            
+            //QUESTIONAIRE FOR FEMAL
+            else if showView == 4 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.7)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("3/3")
+                        .padding()
+                    Text("How many days do you want to work out?")
+                        .padding(.bottom, 90)
+                    
+                    NavigationLink(destination: fmale1()){
+                        Text("1 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+
+                    NavigationLink(destination: fmale2()){
+                        Text("2 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: fmale3()){
+                        Text("3 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
                     Spacer()
                 }
             }
@@ -213,7 +430,7 @@ struct logInView: View{
     //    for Password TextField
         @State var passwordTextField: String = ""
         
-        
+
         var body: some View{
             VStack{
                 Spacer()
@@ -264,6 +481,1076 @@ struct logInView: View{
 
 //come back to i
 
+struct male1: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 3 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                    .foregroundColor(Color.black)
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+struct male2: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 3 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                    .foregroundColor(Color.black)
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+struct male3: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 3 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                    .foregroundColor(Color.black)
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+
+//____________________
+
+struct fmale1: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 3 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                    .foregroundColor(Color.black)
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+
+//_____________________________________________
+struct fmale2: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 3 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                    .foregroundColor(Color.black)
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+
+//_______________________________________
+
+struct fmale3: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+        
+        if showView == 3 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+            Button(action:{
+                showView = 3
+            }) {
+                Text("Day 3")
+                    .foregroundColor(Color.black)
+                        }
+            Spacer()
+                    }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+
+struct testRealm: View{
+    var body: some View{
+        Text("IT WOKR")
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
