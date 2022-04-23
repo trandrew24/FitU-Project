@@ -11,6 +11,12 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
+`extension Color {
+    static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+    static let darkPink = Color(red: 208 / 255, green: 45 / 255, blue: 208 / 255)
+    static let BackColor = Color("BackColor")
+}`
+
 # Header 1
 ## Header 2
 ### Header 3
