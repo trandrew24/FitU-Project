@@ -288,6 +288,7 @@ struct ContentView: View {
 }
 
 struct startView: View{
+    
     var body: some View{
             VStack{
                 
@@ -334,7 +335,7 @@ struct startView: View{
 struct signUpView: View{
     
     @State var show: Bool = false
-
+    @AppStorage("email array") var savedEmail = " "
 //    hold name, email, password
     @State var nameArray: [String] = []
     @State var emailArray: [String] = []
@@ -402,6 +403,9 @@ struct signUpView: View{
             NavigationLink(destination: welcomeView(nameArray: self.$nameArray, emailArray: self.$emailArray, passwordArray: self.$passwordArray), isActive: self.$show) {
 
                 Text("Next")
+//                    .onTapGesture {
+//                        self.saveAllFields()
+//                    }
                 .frame(width: 140, height: 25)
                 .foregroundColor(.black)
                 .cornerRadius(100)
@@ -410,6 +414,7 @@ struct signUpView: View{
                 .stroke(Color.black, lineWidth: 1)
                 )
             }
+
             
             
         }
@@ -419,6 +424,7 @@ struct signUpView: View{
         nameArray.append(nameTextField)
         emailArray.append(emailTextField)
         passwordArray.append(passwordTextField)
+        self.savedEmail = emailTextField
     }
 }
     
@@ -562,7 +568,7 @@ struct male2: View{
             }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: maleWorkout1()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -613,7 +619,7 @@ struct male2: View{
             }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: maleWorkout2()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -676,7 +682,7 @@ struct male3: View{
                         }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: maleWorkout1()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -733,7 +739,7 @@ struct male3: View{
                         }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: maleWorkout2()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -790,7 +796,7 @@ struct male3: View{
                         }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: maleWorkout3()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -843,7 +849,7 @@ struct fmale1: View{
             }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: femWorkout1()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -901,7 +907,7 @@ struct fmale2: View{
             }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: femWorkout1()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -952,7 +958,7 @@ struct fmale2: View{
             }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: femWorkout2()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -1018,7 +1024,7 @@ struct fmale3: View{
                         }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: femWorkout1()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -1075,7 +1081,7 @@ struct fmale3: View{
                         }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: femWorkout2()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -1132,7 +1138,7 @@ struct fmale3: View{
                         }
             Spacer()
                     }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: femWorkout3()){
                     ZStack{
                     Image("pic3")
                         .resizable()
@@ -1236,6 +1242,357 @@ struct maleWorkout1: View{
         }
     }
 }
+
+struct maleWorkout2: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 2 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("4-6 reps")
+        Text("Deadlift")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("BD Shoulder press")
+    }
+}
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("Lat pulldown")
+        }
+}
+            ZStack{
+                Color("BackColor")
+                    .opacity(0.7)
+                    .contentShape(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 30)
+                .frame(width: 300, height: 120)
+                .foregroundColor(Color.white)
+                VStack{
+            Text("3 sets")
+            Text("10-15 reps")
+            Text("DB Bicep curl")
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct maleWorkout3: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 3 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("4 sets")
+        Text("6-10 reps")
+        Text("Incline bench press")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("6-10 reps")
+        Text("Bent over row")
+    }
+}
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("DB walking lunge")
+        }
+}
+            ZStack{
+                Color("BackColor")
+                    .opacity(0.7)
+                    .contentShape(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 30)
+                .frame(width: 300, height: 120)
+                .foregroundColor(Color.white)
+                VStack{
+            Text("3 sets")
+            Text("10-15 reps")
+            Text("Tricep pushdown")
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct femWorkout1: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 1 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("6-8 reps")
+        Text("Squat")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("BD bench press")
+    }
+}
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("DB Row")
+        }
+}
+            ZStack{
+                Color("BackColor")
+                    .opacity(0.7)
+                    .contentShape(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 30)
+                .frame(width: 300, height: 120)
+                .foregroundColor(Color.white)
+                VStack{
+            Text("3 sets")
+            Text("10-15 reps")
+            Text("single leg hip thrust")
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct femWorkout2: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 2 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("6-8 reps")
+        Text("Deadlift")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("BD Shoulder press")
+    }
+}
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("Lat pulldown")
+        }
+}
+            ZStack{
+                Color("BackColor")
+                    .opacity(0.7)
+                    .contentShape(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 30)
+                .frame(width: 300, height: 120)
+                .foregroundColor(Color.white)
+                VStack{
+            Text("3 sets")
+            Text("10-15 reps")
+            Text("DB split squat")
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct femWorkout3: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 3 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("4 sets")
+        Text("10-12 reps")
+        Text("BB hip thrust")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("Machine chest press")
+    }
+}
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("chest supported row")
+        }
+}
+            ZStack{
+                Color("BackColor")
+                    .opacity(0.7)
+                    .contentShape(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+            RoundedRectangle(cornerRadius: 30)
+                .frame(width: 300, height: 120)
+                .foregroundColor(Color.white)
+                VStack{
+            Text("3 sets")
+            Text("6-10 reps")
+            Text("Stiff leg deadlift")
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
