@@ -345,7 +345,7 @@ struct signUpView: View{
     var body: some View{
         VStack{
             Spacer()
-            Text("Sign Up").font(.largeTitle)
+            Text("Lets get to know you").font(.largeTitle)
             Spacer()
             TextField("Name", text: $nameTextField)
                 .padding(.leading, 10)
@@ -850,7 +850,7 @@ struct fmale1: View{
                             .bold()
                     }
                 }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: testRealm1()){
                     ZStack{
                     Image("Howto")
                         .resizable()
@@ -908,7 +908,7 @@ struct fmale2: View{
                             .bold()
                     }
                 }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: testRealm1()){
                     ZStack{
                     Image("Howto")
                         .resizable()
@@ -959,7 +959,7 @@ struct fmale2: View{
                             .bold()
                     }
                 }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: testRealm1()){
                     ZStack{
                     Image("Howto")
                         .resizable()
@@ -1025,7 +1025,7 @@ struct fmale3: View{
                             .bold()
                     }
                 }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: testRealm1()){
                     ZStack{
                     Image("Howto")
                         .resizable()
@@ -1082,7 +1082,7 @@ struct fmale3: View{
                             .bold()
                     }
                 }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: testRealm1()){
                     ZStack{
                     Image("Howto")
                         .resizable()
@@ -1139,7 +1139,7 @@ struct fmale3: View{
                             .bold()
                     }
                 }
-                NavigationLink(destination: testRealm()){
+                NavigationLink(destination: testRealm1()){
                     ZStack{
                     Image("Howto")
                         .resizable()
@@ -1266,28 +1266,123 @@ struct testRealm: View{
                     
                     }
                 })
-
+            }
+        }
     }
 }
-//        VStack{
-//        videos(videoID: "CX-BdDHW0Ho")
-//            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
-//            .cornerRadius(12)
-//            .padding(.horizontal, 24)
-//        videos(videoID: "0TD96VTf0Xs")
-//            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
-//            .cornerRadius(12)
-//            .padding(.horizontal, 24)
-//
-//            videos(videoID: "0TD96VTf0Xs")
-//                .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
-//                .cornerRadius(12)
-//                .padding(.horizontal, 24)
-//            videos(videoID: "0TD96VTf0Xs")
-//                .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
-//                .cornerRadius(12)
-//                .padding(.horizontal, 24)
-//        }
+
+
+struct testRealm1: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                //.ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+        Text("Day 1")
+        ScrollView(.horizontal, showsIndicators: false, content: {
+            HStack{
+                VStack{
+                    Text("Squat")
+                videos(videoID: "i7J5h7BJ07g")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("DB Bench Press")
+                videos(videoID: "YQ2s_Y7g5Qk")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("DB Row")
+                videos(videoID: "DMo3HJoawrU")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("Single Leg Hip Thrust")
+                videos(videoID: "lzDgRRuBdqY")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+            
+            }
+        })
+                Text("Day 2")
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack{
+                        VStack{
+                            Text("Deadlift")
+                        videos(videoID: "AweC3UaM14o")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Shoulder Press")
+                        videos(videoID: "HzIiNhHhhtA")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Lat Pulldown")
+                        videos(videoID: "YCKPD4BSD2E")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Split Squat")
+                        videos(videoID: "jNihW0WDIL4")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                    
+                    }
+                })
+                Text("Day 3")
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack{
+                        VStack{
+                            Text("BB Hip Thrust")
+                        videos(videoID: "EF7jXP17DPE")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Machine Chest Press")
+                        videos(videoID: "NwzUje3z0qY")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Chest Supported Row")
+                        videos(videoID: "_FrrYQxA6kc")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Stiff Leg Deadlift")
+                        videos(videoID: "CN_7cz3P-1U")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                    
+                    }
+                })
+            }
+        }
     }
 }
 
