@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 extension Color {
     static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
@@ -19,10 +20,11 @@ struct welcomeView: View{
     @Binding var nameArray: [String]
     @Binding var emailArray: [String]
     @Binding var passwordArray: [String]
-
+    
     var body: some View{
         ZStack(alignment: .bottom){
             VStack{
+
                 Text("Welcome to FitU").font(.largeTitle)
                 Text(nameArray[0]).font(.largeTitle)
                 Spacer()
@@ -300,13 +302,13 @@ struct startView: View{
                 HStack{
                     Spacer()
                 Text("Train Like A BEAST").font(.largeTitle)
-                        .offset(y: -140)
+                        .offset(y: -100)
                     Spacer()
                 }
                 Spacer()
                 NavigationLink(destination: signUpView()){
-                    Text("Sign up")
-                        .frame(width: 140, height: 25)
+                    Text("Lets get started!")
+                        .frame(width: 175, height: 25)
                         .foregroundColor(.black)
                         .background(Color.BackColor)
                         .cornerRadius(100)
@@ -316,17 +318,6 @@ struct startView: View{
                         )
                 }
                 .padding(.bottom, 10 )
-                NavigationLink(destination: logInView()){
-                    Text("Log In")
-                        .frame(width: 140, height: 25)
-                        .foregroundColor(.black)
-                        .cornerRadius(100)
-                        .overlay(
-                        RoundedRectangle(cornerRadius: 100)
-                        .stroke(Color.black, lineWidth: 1)
-                        )
-                }
-                .padding(.bottom, 20)
                 Spacer()
         }
     }
@@ -369,7 +360,7 @@ struct signUpView: View{
                 )
                 .padding(.bottom)
             
-            TextField("Email", text: $emailTextField)
+            TextField("Optional: Email", text: $emailTextField)
                 .padding(.leading, 10)
                 .frame(width: 280, height: 50)
                 .background(Color.BackColor
@@ -382,7 +373,7 @@ struct signUpView: View{
                 )
                 .padding(.bottom)
             
-            SecureField("Password", text: $passwordTextField)
+            TextField("Optional: Phone", text: $passwordTextField)
                 .padding(.leading, 10)
                 .frame(width: 280, height: 50)
                 .background(Color.BackColor
@@ -401,7 +392,6 @@ struct signUpView: View{
                 self.saveAllFields()
             }
             NavigationLink(destination: welcomeView(nameArray: self.$nameArray, emailArray: self.$emailArray, passwordArray: self.$passwordArray), isActive: self.$show) {
-
                 Text("Next")
 //                    .onTapGesture {
 //                        self.saveAllFields()
@@ -1169,7 +1159,135 @@ struct fmale3: View{
 
 struct testRealm: View{
     var body: some View{
-        Text("IT WOKR")
+        ZStack{
+            Color("BackColor")
+                //.ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+        Text("Day 1")
+        ScrollView(.horizontal, showsIndicators: false, content: {
+            HStack{
+                VStack{
+                    Text("Squat")
+                videos(videoID: "i7J5h7BJ07g")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("Bench Press")
+                videos(videoID: "EeE3f4VWFDo")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("DB Row")
+                videos(videoID: "DMo3HJoawrU")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("Lateral Raise")
+                videos(videoID: "OuG1smZTsQQ")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+            
+            }
+        })
+                Text("Day 2")
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack{
+                        VStack{
+                            Text("Deadlift")
+                        videos(videoID: "AweC3UaM14o")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Shoulder Press")
+                        videos(videoID: "HzIiNhHhhtA")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Lat Pulldown")
+                        videos(videoID: "YCKPD4BSD2E")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Bicep Curl")
+                        videos(videoID: "iixND1P2lik")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                    
+                    }
+                })
+                Text("Day 3")
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack{
+                        VStack{
+                            Text("Incline Bench Press")
+                        videos(videoID: "FxQ0XEoFYQk")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Bent Over Row")
+                        videos(videoID: "6FZHJGzMFEc")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Walking Lunge")
+                        videos(videoID: "eFWCn5iEbTU")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Tricep Pushdown")
+                        videos(videoID: "iixND1P2lik")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                    
+                    }
+                })
+
+    }
+}
+//        VStack{
+//        videos(videoID: "CX-BdDHW0Ho")
+//            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
+//            .cornerRadius(12)
+//            .padding(.horizontal, 24)
+//        videos(videoID: "0TD96VTf0Xs")
+//            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
+//            .cornerRadius(12)
+//            .padding(.horizontal, 24)
+//
+//            videos(videoID: "0TD96VTf0Xs")
+//                .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
+//                .cornerRadius(12)
+//                .padding(.horizontal, 24)
+//            videos(videoID: "0TD96VTf0Xs")
+//                .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.3)
+//                .cornerRadius(12)
+//                .padding(.horizontal, 24)
+//        }
     }
 }
 
