@@ -7,10 +7,17 @@ Created by Andrew Tran and Brandon Nguyen
 
 ## Getting Started
 
+## Time to Code!
+
 
 
 ## Further Discussion
 
+[Source code for our demo](https://github.com/trandrew24/FitU-Project/tree/main)
+
+Some things to note are that we utilized `@State`, and `@Binding` properties to pass data between views, particularly user information. While this is fine for passing views from one parent view to one child views, things can get dicey when passing down multiple levels of views. With this in mind, we think it may be more appropriate to use the `@ObservedObject` or `@environmentObject` modifiers to pass down multiple views.
+
+When using SwiftUI, ScrollView can be a bit of a hassle when using very long lists of varied content, such as newsfeeds. Normally you would want to use a LazyVStack for most features like this, but ScrollView does not display content very smoothly when this is the case.
 
 
 ## See Also
