@@ -6,19 +6,28 @@ SwiftUI is a user interface toolkit that makes Swift easier to use. SwiftUI allo
 In collaboration with a UX Designer, Andrew and I wanted to create an app that helps beginners who are looking to start their fitness journey. Our app creates a personalized workout program that caters towards our users' wants and needs. The app allows beginners to refer to videos in order to learn how to correctly use form and equipment thus allowing tusers' to confidently workout with the correct knowledge. 
 App demo
 #1: Screens that welcome users to the app.
-<img width="455" alt="Screen Shot 2022-04-23 at 7 10 23 PM (1)" src="https://user-images.githubusercontent.com/71661401/165005018-96aff4a8-6c82-4bf1-8b5e-b105c3006b23.png">
-<img width="455" alt="Screen Shot 2022-04-23 at 7 09 41 PM" src="https://user-images.githubusercontent.com/71661401/165005820-0814d175-cbe6-4658-965b-8a6d4a08254d.png">
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 10 23 PM (1)" src="https://user-images.githubusercontent.com/71661401/165005018-96aff4a8-6c82-4bf1-8b5e-b105c3006b23.png">
+<img width="150" alt="Screen Shot 2022-04-23 at 7 09 41 PM" src="https://user-images.githubusercontent.com/71661401/165005820-0814d175-cbe6-4658-965b-8a6d4a08254d.png">
+
 #2: Promp user to ender their name and optional information such as email and phone. Must press "save info"
-<img width="455" alt="Screen Shot 2022-04-23 at 7 10 36 PM" src="https://user-images.githubusercontent.com/71661401/165006012-b9bb017e-7fbc-469d-be3a-5509f0fb1cc7.png">
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 10 36 PM" src="https://user-images.githubusercontent.com/71661401/165006012-b9bb017e-7fbc-469d-be3a-5509f0fb1cc7.png">
+
 #3: Questionnaire that produce a program for each user.
-<img width="455" alt="Screen Shot 2022-04-23 at 7 11 40 PM" src="https://user-images.githubusercontent.com/71661401/165006118-5aebef53-2988-4ed1-963a-72508fb0f66a.png">
-<img width="455" alt="Screen Shot 2022-04-23 at 7 11 49 PM" src="https://user-images.githubusercontent.com/71661401/165006141-398aba1a-7d50-40a6-8374-f6cf259a8ba7.png">
-<img width="455" alt="Screen Shot 2022-04-23 at 7 11 56 PM" src="https://user-images.githubusercontent.com/71661401/165006153-de856425-6f44-4be3-9690-881d470ec6b1.png">
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 11 40 PM" src="https://user-images.githubusercontent.com/71661401/165006118-5aebef53-2988-4ed1-963a-72508fb0f66a.png">
+<img width="150" alt="Screen Shot 2022-04-23 at 7 11 49 PM" src="https://user-images.githubusercontent.com/71661401/165006141-398aba1a-7d50-40a6-8374-f6cf259a8ba7.png">
+<img width="150" alt="Screen Shot 2022-04-23 at 7 11 56 PM" src="https://user-images.githubusercontent.com/71661401/165006153-de856425-6f44-4be3-9690-881d470ec6b1.png">
+
 #4: The program page allow the user to check out there program by pressing the "Workout" or check the videos by pressing the "How to"
-<img width="455" alt="Screen Shot 2022-04-23 at 7 12 07 PM" src="https://user-images.githubusercontent.com/71661401/165006290-3fc8f6db-f009-477a-a040-0565fda6fe87.png">
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 12 07 PM" src="https://user-images.githubusercontent.com/71661401/165006290-3fc8f6db-f009-477a-a040-0565fda6fe87.png">
+
 #5: The workout page and the how to page. The work out page shows the program, the excersize and how many to do. The how to page shows the videos on how to do the workout.
-<img width="455" alt="Screen Shot 2022-04-23 at 7 12 31 PM" src="https://user-images.githubusercontent.com/71661401/165006424-ce99e004-8fde-4de0-8adb-e467ec9d1a96.png">
-<img width="455" alt="Screen Shot 2022-04-23 at 7 13 22 PM" src="https://user-images.githubusercontent.com/71661401/165006440-63f1c9cb-c88b-4d2b-ad29-7ad2ec538491.png">
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 12 31 PM" src="https://user-images.githubusercontent.com/71661401/165006424-ce99e004-8fde-4de0-8adb-e467ec9d1a96.png">
+<img width="150" alt="Screen Shot 2022-04-23 at 7 13 22 PM" src="https://user-images.githubusercontent.com/71661401/165006440-63f1c9cb-c88b-4d2b-ad29-7ad2ec538491.png">
 
 ## Getting Started
 Andrew and I use xcode, the issue with xcode is that it's hard to get on windows. I have not yet used it but silver allows window user to code with swift. We used the most recent version of xcode, you'll need to update your mac to the most recent update, macOS 12.3. On how to download xcode on your mac feel free to check out (https://www.youtube.com/watch?v=114eUq7-B20&feature=emb_logo) or if you want to download and run xcode yourself it is fairly easy. Open the app store on your mac and look up xcode in the search and download. Once done feel free to grab our source code in the next portion "Time To Code!"
