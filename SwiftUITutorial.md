@@ -37,14 +37,14 @@ Step-by-step coding instructions.  This could be subdivided into multiple sectio
 
 First, make a SwiftUI file called ContentView, which will be the primary view for our SwiftUI app. You will notice that the project will have 2 structs made for you, ContentView and Content_Previews:
 
-#ContentView
+# ContentView
 ```
 struct ContentView: View {
     var body: some View {
     }
 ```
 
-#ContentView_Previews
+# ContentView_Previews
 ```
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -68,9 +68,108 @@ struct ContentView: View {
       }
     }
 ```
-<img width="150" alt="Screen Shot 2022-04-23 at 7 10 23 PM" src="https://user-images.githubusercontent.com/87389487/165002588-04518c5e-1561-4e9f-bc5f-4bb4e116df5c.png">
 
 NavigationLink is essentially a way for us to make a segue to our next screen.
+
+The following image is what our first screen will look like.
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 10 23 PM" src="https://user-images.githubusercontent.com/87389487/165002588-04518c5e-1561-4e9f-bc5f-4bb4e116df5c.png">
+
+To get there we will need the following code to build our first UI.
+
+
+```
+struct ContentView: View {
+    var body: some View {
+        NavigationView{
+            NavigationLink(destination: startView()) {
+                ZStack {
+                    Color("BackColor")
+                        .contentShape(Rectangle())
+                        .edgesIgnoringSafeArea(.all)
+                        .navigationBarHidden(true)
+                    VStack{
+                            Image("Image-1")
+                    Text("A workout program built by you")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+        }
+    }
+}
+
+```
+
+Here we utilize ZStack and VStack to arrange the elements on our screen. Later we will use HStack as well. Here is a brief rundown on how these work:
+
+VStack - Aligns elements on the Y-axis. Elements at the top of the stack are placed higher on the screen.
+HStack - Aligns elements on the X-axis. Elements at the top of the stack are placed leftmost on the screen
+ZStack - Aligns elements on the Z-axis. Elements at the top of the stack are in the background, while components at the bottom of the stack are placed on the surface.
+
+You will also notice that this code uses closures, and SwiftUI uses a ton of closures to make code more readable.
+
+Nested within the ZStack is our `Color()` function that has the parameter "BackColor", which will come from our assets folder, this is all to set up the background color. Below `Color()` in the ZStack is a VStack, which will allow us to place an image (from our assets again), and some text over top of our backgound color.
+
+Speaking of color, we haven't put in our custom color yet. Go ahead and plug this code into the top of your file:
+
+```
+extension Color {
+    static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+    static let darkPink = Color(red: 208 / 255, green: 45 / 255, blue: 208 / 255)
+    static let BackColor = Color("BackColor")
+}
+```
+
+We won't be using teal or darkPink in this demo, but those are there for you to play with if you want to use something else.
+
+Now that we have our first screen ready, we will go ahead and make our second screen, which is called `startView()`.
+
+Here is what it should look like:
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 09 41 PM" src="https://user-images.githubusercontent.com/87389487/165169830-4dbd719e-fcfa-4284-8096-99477a429079.png">
+
+```
+struct startView: View{
+    
+    var body: some View{
+            VStack{
+                
+                Image("pic1")
+                    .resizable()
+                        .frame(width: 500, height: 500)
+                        .offset(x: 0, y: -100)
+                
+                HStack{
+                    Spacer()
+                Text("Train Like A BEAST").font(.largeTitle)
+                        .offset(y: -100)
+                    Spacer()
+                }
+                Spacer()
+                NavigationLink(destination: signUpView()){
+                    Text("Lets get started!")
+                        .frame(width: 175, height: 25)
+                        .foregroundColor(.black)
+                        .background(Color.BackColor)
+                        .cornerRadius(100)
+                        .overlay(
+                        RoundedRectangle(cornerRadius: 100)
+                        .stroke(Color.black, lineWidth: 1)
+                        )
+                }
+                .padding(.bottom, 10 )
+                Spacer()
+        }
+    }
+}
+```
+
+This is a lot of code, but focus on the new tools we are using, which are `Spacer()`, and HStack.
+
+You will see that every element on the screen is nested within a VStack. Below our image, we have our first HStack, which contains a single element (some text) flanked by `Spacer()`. `Spacer()` allows us to fill any space within a VStack or HStack. In this scenario, we are using it to easily center our text on the screen (placing one spacer on the left, one on the right).
+
+
 
 ## Further Discussion
 
