@@ -169,6 +169,105 @@ This is a lot of code, but focus on the new tools we are using, which are `Space
 
 You will see that every element on the screen is nested within a VStack. Below our image, we have our first HStack, which contains a single element (some text) flanked by `Spacer()`. `Spacer()` allows us to fill any space within a VStack or HStack. In this scenario, we are using it to easily center our text on the screen (placing one spacer on the left, one on the right).
 
+Next, we will make our signUpView(), which will look like this:
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 10 36 PM" src="https://user-images.githubusercontent.com/87389487/165184236-fdc8ff76-bfd8-4d66-8ab8-f2555673a838.png">
+
+First, we will declare the struct for signUpView with some state variables and a helper function:
+
+```
+struct signUpView: View{
+
+    @State var show: Bool = false
+    
+    @State var nameArray: [String] = []
+    @State var emailArray: [String] = []
+    @State var passwordArray: [String] = []
+    
+    @State var nameTextField: String = ""
+    
+    @State var emailTextField: String = ""
+    
+    @State var passwordTextField: String = ""
+    
+    func saveAllFields() {
+        nameArray.append(nameTextField)
+        emailArray.append(emailTextField)
+        passwordArray.append(passwordTextField)
+    }
+}
+```
+
+We use `@State` properties so that we can pass data to our next screen, which will be stored in an @Binding property. Since our data can be passed now, let's go ahead and make the body of our signUpVew, copy and paste the code below your `@State` variables:
+
+```
+    var body: some View{
+        VStack{
+            Spacer()
+            Text("Lets get to know you").font(.largeTitle)
+            Spacer()
+            TextField("Name", text: $nameTextField)
+                .padding(.leading, 10)
+                .frame(width: 280, height: 50)
+                .background(Color.BackColor
+                                .opacity(0.4) // made back color more transparent w/transparent
+                                .cornerRadius(100)) // rounded corner
+                .foregroundColor(.black)
+                .overlay(
+                RoundedRectangle(cornerRadius: 100)
+                .stroke(Color.black, lineWidth: 1)
+                )
+                .padding(.bottom)
+            
+            TextField("Optional: Email", text: $emailTextField)
+                .padding(.leading, 10)
+                .frame(width: 280, height: 50)
+                .background(Color.BackColor
+                                .opacity(0.4) // made back color more transparent w/transparent
+                                .cornerRadius(100)) // rounded corner
+                .foregroundColor(.black)
+                .overlay(
+                RoundedRectangle(cornerRadius: 100)
+                .stroke(Color.black, lineWidth: 1)
+                )
+                .padding(.bottom)
+            
+            TextField("Optional: Phone", text: $passwordTextField)
+                .padding(.leading, 10)
+                .frame(width: 280, height: 50)
+                .background(Color.BackColor
+                                .opacity(0.4) // made back color more transparent w/transparent
+                                .cornerRadius(100)) // rounded corner
+                .foregroundColor(.black)
+                .overlay(
+                RoundedRectangle(cornerRadius: 100)
+                .stroke(Color.black, lineWidth: 1)
+                )
+            
+            Spacer()
+            
+            Button("Save My Info"){
+                self.saveAllFields()
+            }
+            NavigationLink(destination: welcomeView(nameArray: self.$nameArray, emailArray: self.$emailArray, passwordArray: self.$passwordArray), isActive: self.$show) {
+                Text("Next")
+                .frame(width: 140, height: 25)
+                .foregroundColor(.black)
+                .cornerRadius(100)
+                .overlay(
+                RoundedRectangle(cornerRadius: 100)
+                .stroke(Color.black, lineWidth: 1)
+                )
+            }
+        }
+    }
+```
+
+First thing to note here are that we have a new element in our body called `TextField()` which will help us make our text fields. We are customizing the color and shade of the text fields by using modifier `.background()`, which will take a color as argument, and then we further modify the shade of the color using .opacity(). We do this for all 3 of our text fields.
+
+Second, we are using our first button (every tap feature so far has just been a NavigationLink). `Button()` takes the name of the button as argument, and has the option for a closure to assign code for that action to perform once it is pressed. 
+
+Third, our NavigationLink is given the shape of a button as well. We do this by using the .frame() modifier to play with the dimension of the NavigationLink. You will notice that the NavigationLink has `welcomeView()` as an argument, which in turn carries our passed user info from our `@State` properties. This will allow us to pass the `@State` properties to our next screen, `welcomeView()` which will store them as `@Binding` properties to be used.
 
 
 ## Further Discussion
