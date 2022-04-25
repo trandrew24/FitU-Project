@@ -8,8 +8,44 @@ Created by Andrew Tran and Brandon Nguyen
 ## Getting Started
 
 ## Time to Code!
+Step-by-step coding instructions.  This could be subdivided into multiple sections as you see fit, but basically this will be the “meat” of your tutorial.  It will consist of code snippets, text discussing the code, figures / videos of perhaps concepts that are hard to describe in text / code.  Make sure any code snippets are formatted well and readable.  Readers should also be able to copy/paste code snippets in your tutorial if they are attempting to follow along in their code editor as they read. 
 
+First, make a SwiftUI file called ContentView, which will be the primary view for our SwiftUI app. You will notice that the project will have 2 structs made for you, ContentView and Content_Previews:
 
+#ContentView
+```
+struct ContentView: View {
+    var body: some View {
+    }
+```
+
+#ContentView_Previews
+```
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+        .previewInterfaceOrientation(.portrait)
+    }
+}
+```
+
+The ContentView_Previews Struct is a pretty neat feature of SwiftUI because it gives you a preview of what your UI will look like as you add code! This Canvas will let you do some cool drag and drop options, but this tutorial will use SwiftUI's declarative syntax to write code.
+
+To construct the first screen, we will want to first create a NavigationView within ContentView, which will have a NavigationLink nested within it:
+
+```
+struct ContentView: View {
+    var body: some View {
+      NavigationView{
+        NavigationLink(destination: startView()) {
+        
+        }
+      }
+    }
+```
+<img width="150" alt="Screen Shot 2022-04-23 at 7 10 23 PM" src="https://user-images.githubusercontent.com/87389487/165002588-04518c5e-1561-4e9f-bc5f-4bb4e116df5c.png">
+
+NavigationLink is essentially a way for us to make a segue to our next screen.
 
 ## Further Discussion
 
