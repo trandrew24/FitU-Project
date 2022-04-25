@@ -31,6 +31,11 @@ struct ContentView_Previews: PreviewProvider {
 
 The ContentView_Previews Struct is a pretty neat feature of SwiftUI because it gives you a preview of what your UI will look like as you add code! This Canvas will let you do some cool drag and drop options, but this tutorial will use SwiftUI's declarative syntax to write code.
 
+
+Here is the first screen we will make:
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 10 23 PM" src="https://user-images.githubusercontent.com/87389487/165002588-04518c5e-1561-4e9f-bc5f-4bb4e116df5c.png">
+
 To construct the first screen, we will want to first create a NavigationView within ContentView, which will have a NavigationLink nested within it:
 
 ```
@@ -43,9 +48,39 @@ struct ContentView: View {
       }
     }
 ```
-<img width="150" alt="Screen Shot 2022-04-23 at 7 10 23 PM" src="https://user-images.githubusercontent.com/87389487/165002588-04518c5e-1561-4e9f-bc5f-4bb4e116df5c.png">
 
-NavigationLink is essentially a way for us to make a segue to our next screen.
+
+NavigationLink is essentially a way for us to make a segue to our next screen. You will notice that a common theme in SwiftUI is to use declarative programming. Closures are ubiquitous in SwiftUI to promote readable code.
+
+The parameter startView(), will be the next screen in our app.
+
+Within NavigationLink's closure, we will nest the following code:
+
+```
+ZStack {
+                    Color("BackColor")
+                        .contentShape(Rectangle())
+                        .edgesIgnoringSafeArea(.all)
+                        .navigationBarHidden(true)
+                    VStack{
+                            Image("Image-1")
+                    Text("A workout program built by you")
+                            .foregroundColor(.black)
+                    }
+                }
+```
+
+In SwiftUI there are HStacks (horizontal axis stack), VStacks (vertical axis stack), and ZStacks (z-axis stack). These stacks allow you to align components on our screens either horizontally, vertically, or on top of each other, ala the z-axis.
+
+Some things to note: 
+Items at the bottom of the ZStack sit on top of everything else.
+Items at the top of a VStack are placed higher on the screen.
+Items at the top of an HStack are placed leftmost on the screen
+
+The `Color("BackColor")` method with its associated modifiers create the background color for the screen.
+
+The Image is embedded in the VStack using one of the images in our assets folder.
+
 
 ## Further Discussion
 
