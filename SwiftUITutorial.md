@@ -3,7 +3,7 @@ Created by Andrew Tran and Brandon Nguyen
 
 ## Overview
 SwiftUI is a user interface toolkit that makes Swift easier to use. SwiftUI allows users to code app for apple products with using less amount of code.
-In collaboration with a UX Designer, Andrew and I wanted to create an app that helps beginners who are looking to start their fitness journey. Our app creates a personalized workout program that caters towards our users' wants and needs. The app allows beginners to refer to videos in order to learn how to correctly use form and equipment thus allowing tusers' to confidently workout with the correct knowledge. 
+In collaboration with a UX Designer, Andrew and I wanted to create an app that helps beginners who are looking to start their fitness journey. Our app creates a personalized workout program that caters towards our users' wants and needs. The app allows beginners to refer to videos in order to learn how to correctly use form and equipment thus allowing users' to confidently workout with the correct knowledge. 
 App demo
 #1: Screens that welcome users to the app.
 
@@ -269,6 +269,548 @@ Second, we are using our first button (every tap feature so far has just been a 
 
 Third, our NavigationLink is given the shape of a button as well. We do this by using the .frame() modifier to play with the dimension of the NavigationLink. You will notice that the NavigationLink has `welcomeView()` as an argument, which in turn carries our passed user info from our `@State` properties. This will allow us to pass the `@State` properties to our next screen, `welcomeView()` which will store them as `@Binding` properties to be used.
 
+```
+struct welcomeView: View{
+    
+    @State var showView: Int = 1
+    @Binding var nameArray: [String]
+    @Binding var emailArray: [String]
+    @Binding var passwordArray: [String]
+    
+    var body: some View{
+        ZStack(alignment: .bottom){
+            VStack{
+
+                Text("Welcome to FitU").font(.largeTitle)
+                Text(nameArray[0]).font(.largeTitle)
+                Spacer()
+            }
+            
+//          QUESTIONNAIRE 1
+            if showView == 1 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.5)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("1/3")
+                        .padding()
+                    Text("What are you focused on?")
+                        .padding(.bottom, 90)
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Weight Maintenance")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Losing Weight")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Building Muscle")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Spacer()
+                }
+            }
+            
+//            QUESTIONNAIRE 2
+            else if showView == 2 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.5)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("2/3")
+                        .padding()
+                    Text("What is your gender?")
+                        .padding(.bottom, 90)
+                    Button(action: {
+                        showView += 1
+                    }) {
+                        Text("Male")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Button(action: {
+                        showView += 2
+                    }) {
+                        Text("Female")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    Spacer()
+                }
+            }
+ ```
+For the `welcomeView()` first we would need to implement `@state var showView: Int = 1` this would allow us to flip from questionaire 1 to questionaire 2 without having to go to a different view. The showView is then used in out if statements that allows the screen to switch to the next questionaire by clicking an answer. To have the effect we would use `.transition(.move(edge: .bottom))` this allows the `RoundedRectangle(cornerRadius: 30)` to transition from the bottom of the screen up and there are other type of animation you could use but we chose to use `.animation(.spring())` and this gives us the animation for the transition between questionaire. We used the `ZStack` to put our questionaire that is in a `VStack` to sit on the RoundedRectangle. The `.stroke(Color.black, lineWidth: 1)` makes the frame of the rectangle colored black, and the width is the size of that line. 
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 11 40 PM" src="https://user-images.githubusercontent.com/71661401/165006118-5aebef53-2988-4ed1-963a-72508fb0f66a.png">
+<img width="150" alt="Screen Shot 2022-04-23 at 7 11 49 PM" src="https://user-images.githubusercontent.com/71661401/165006141-398aba1a-7d50-40a6-8374-f6cf259a8ba7.png"> 
+
+To produce different workout for the male and female we had that if they chose male then `showView += 1` and if they chose female then `showView += 2`. Then it would come to the following code below. If male was pressed, showView == 3, if female was pressed, showView == 4, this would give us the outcome of diffent workouts depending on gender. The final screens are relatively the same so we will just be sticking to the male.
+      
+ ```
+            //QUESTIONARE for male 3
+            
+            else if showView == 3 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.7)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("3/3")
+                        .padding()
+                    Text("How many days do you want to work out?")
+                        .padding(.bottom, 90)
+                    
+                    NavigationLink(destination: male1()){
+                        Text("1 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: male2()){
+                        Text("2 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: male3()){
+                        Text("3 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    Spacer()
+                }
+            }
+            
+            //QUESTIONAIRE FOR FEMAL
+            else if showView == 4 {
+                RoundedRectangle(cornerRadius: 30)
+                .frame(height: UIScreen.main.bounds.height * 0.67)
+                .transition(.move(edge: .bottom))
+                .foregroundColor(Color.BackColor)
+                .opacity(0.7)
+                .animation(.spring())
+                VStack{
+                    Spacer()
+                    Text("Questionnaire").bold()
+                        .padding(.top, 90)
+                    Text("3/3")
+                        .padding()
+                    Text("How many days do you want to work out?")
+                        .padding(.bottom, 90)
+                    
+                    NavigationLink(destination: fmale1()){
+                        Text("1 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+
+                    NavigationLink(destination: fmale2()){
+                        Text("2 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    NavigationLink(destination: fmale3()){
+                        Text("3 day")
+                            .frame(width: 250, height: 35)
+                            .foregroundColor(.black)
+                            .background(Color.BackColor.opacity(1.0))
+                            .cornerRadius(100)
+                            .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                            .stroke(Color.black, lineWidth: 1)
+                            )
+                            .padding()
+                    }
+                    
+                    Spacer()
+                }
+            }
+
+        }
+        .edgesIgnoringSafeArea(.bottom)
+    }
+}
+```
+
+On the last quetion asking how many days the user want to work out, we would use the `NavigationLink(destination: male2())` to bring us to our next screen. We will now be going to the next screen which is the `male2()`
+
+```
+struct male2: View{
+    @State var showView: Int = 1
+    
+    var body: some View{
+        if showView == 1 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+            }
+            Spacer()
+                    }
+                NavigationLink(destination: maleWorkout1()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+              
+        if showView == 2 {
+        ZStack{
+            Color("BackColor")
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.5)
+            VStack(spacing: 50){
+        Text("Lets Get Started!")
+        HStack{
+            Spacer()
+            Button(action:{
+                showView = 1
+            }) {
+                Text("Day 1")
+            }
+            Spacer()
+            Button(action:{
+                showView = 2
+            }) {
+                Text("Day 2")
+                    .foregroundColor(Color.black)
+            }
+            Spacer()
+                    }
+                NavigationLink(destination: maleWorkout2()){
+                    ZStack{
+                    Image("pic3")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("Workouts")
+                            .foregroundColor(Color.black)
+                            .bold()
+                    }
+                }
+                NavigationLink(destination: testRealm()){
+                    ZStack{
+                    Image("Howto")
+                        .resizable()
+                        .frame(width: 300, height: 300)
+                        .cornerRadius(100)
+                        Text("How to")
+                            .foregroundColor(Color.black)
+                            .bold()
+                        }
+                    }
+                Spacer()
+                }
+            }
+        }
+    }
+}
+```
+
+This screen doesn't have any new steps so we will be going onto the last 2 screens. You can toggle between day 1 and day 2 with the same code explained in the `welcomeView` and this screen just produce the 2 diffent type of workout programs. We will be focused on day 2 so if you click day 2 and the Workout button it'll take you to the  `maleWorkout2: View`.
+
+```
+struct maleWorkout2: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+        VStack{
+            Text("Day 2 program").bold().font(.largeTitle)
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("4-6 reps")
+        Text("Deadlift")
+            }
+}
+            
+        ZStack{
+            Color("BackColor")
+                .opacity(0.7)
+                .contentShape(Rectangle())
+                .edgesIgnoringSafeArea(.all)
+        RoundedRectangle(cornerRadius: 30)
+            .frame(width: 300, height: 120)
+            .foregroundColor(Color.white)
+            VStack{
+        Text("3 sets")
+        Text("8-12 reps")
+        Text("BD Shoulder press")
+    }
+}
+```
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 12 31 PM" src="https://user-images.githubusercontent.com/71661401/165006424-ce99e004-8fde-4de0-8adb-e467ec9d1a96.png">
+
+This screen just uses `ZStack` and `VStack` to display the program. If you press the back button on the top left it'll bring you back to the `maleWorkout2: View` where we will now go to the `testRealm: View` by preeing the howto button.
+
+```
+struct testRealm: View{
+    var body: some View{
+        ZStack{
+            Color("BackColor")
+                //.ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
+            VStack{
+        Text("Day 1")
+        ScrollView(.horizontal, showsIndicators: false, content: {
+            HStack{
+                VStack{
+                    Text("Squat")
+                videos(videoID: "i7J5h7BJ07g")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("Bench Press")
+                videos(videoID: "EeE3f4VWFDo")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("DB Row")
+                videos(videoID: "DMo3HJoawrU")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+                VStack{
+                    Text("Lateral Raise")
+                videos(videoID: "OuG1smZTsQQ")
+                    .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
+                }
+            
+            }
+        })
+                Text("Day 2")
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack{
+                        VStack{
+                            Text("Deadlift")
+                        videos(videoID: "AweC3UaM14o")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Shoulder Press")
+                        videos(videoID: "HzIiNhHhhtA")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Lat Pulldown")
+                        videos(videoID: "YCKPD4BSD2E")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Bicep Curl")
+                        videos(videoID: "iixND1P2lik")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                    
+                    }
+                })
+                Text("Day 3")
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack{
+                        VStack{
+                            Text("Incline Bench Press")
+                        videos(videoID: "FxQ0XEoFYQk")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Bent Over Row")
+                        videos(videoID: "6FZHJGzMFEc")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("DB Walking Lunge")
+                        videos(videoID: "eFWCn5iEbTU")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                        VStack{
+                            Text("Tricep Pushdown")
+                        videos(videoID: "iixND1P2lik")
+                            .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.2)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                        }
+                    
+                    }
+                })
+            }
+        }
+    }
+}
+```
+
+<img width="150" alt="Screen Shot 2022-04-23 at 7 13 22 PM" src="https://user-images.githubusercontent.com/71661401/165006440-63f1c9cb-c88b-4d2b-ad29-7ad2ec538491.png">
+
+In the testRealm we use a new fucntion called `ScrollView(.horizantal)` which allow the user to scroll horizantally. This allowed us to scroll though the videos that is displayed. To display the video we used the `videos(videoID: )` fucntion where you can put the videos id and play the video. To get the video id, we used youtube videos and depending on which video you want you would click it on youtube. Once you get the URL you would want to get the last random letters 
+Ex: https://www.youtube.com/watch?v=dQw4w9WgXcQ we would want dQw4w9WgXcQ. To put that in the function it would be `videos(videoID: "dQw4w9WgXcQ")`. This is how to display the video on the view. Thats about it for the tutorial, if any questions feel free to leave it in the comment section of out youtube demo. https://www.youtube.com/watch?v=1b7aS_HBJ3M
 
 ## Further Discussion
 
